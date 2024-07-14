@@ -139,7 +139,7 @@
         RCC->APB1ENR |= RCC_APB1ENR_USBEN;                          \
         /* After reset USB->CNTR == (PDWN | FRES) */                \
         USB->CNTR = (0<<USB_CNTR_PDWN_Pos) | USB_CNTR_FRES;         \
-         wait_μs(1, 72 /* MHz */);                                  \
+         wait_us(1, 72 /* MHz */);                                  \
         USB->CNTR = (0<<USB_CNTR_FRES_Pos) | (interrupts_mask);     \
         USB->ISTR = 0;                                              \
     } while (0)

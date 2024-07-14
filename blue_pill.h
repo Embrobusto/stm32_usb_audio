@@ -242,11 +242,11 @@
 
             Example:
                 #define F_CPU_MHz 72
-                wait_μs(1000, F_CPU_MHz); */
+                wait_us(1000, F_CPU_MHz); */
 
-            #define wait_μs(n, MHz) wait_x3_cycles((n)*(MHz)/3)
-            #define wait_ms(n, MHz) wait_μs((n)*1000, MHz)
-            #define wait_s(n, MHz)  wait_μs((n)*1000000, MHz)
+            #define wait_us(n, MHz) wait_x3_cycles((n)*(MHz)/3)
+            #define wait_ms(n, MHz) wait_us((n)*1000, MHz)
+            #define wait_s(n, MHz)  wait_us((n)*1000000, MHz)
 
 
     /*  Converts normal address to bit-band address:

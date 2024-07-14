@@ -187,7 +187,7 @@
 
     void copy_to_pma_x8_oversampled(uint16_t *from, uint32_t* to, uint32_t cnt) {
         /*
-            Function execution time is ~78 (~120) μs
+            Function execution time is ~78 (~120) us
             when running from flash (RAM) at 72 MHz
             CPU clock. `cnt` is the number of samples
             to be written.
@@ -218,7 +218,7 @@
     __attribute__((naked))
     void copy_to_pma_x8_oversampled_fast(uint16_t *from, uint32_t* to, int32_t cnt) {
         /*
-            Function execution time is ~52 (~78) μs
+            Function execution time is ~52 (~78) us
             when running from flash (RAM) at 72 MHz
             CPU clock.
 
@@ -581,7 +581,7 @@
                 }
 
                 /* Start/continue Timer 1; enable Timer1 CC3 interrupt;
-                   at the worst case the interrupt will happen in 5.2 μs */
+                   at the worst case the interrupt will happen in 5.2 us */
                 TIM1->SR = 0;
                 TIM1->DIER = TIM_DIER_CC3IE;
                 TIM1->CR1 = 1;
@@ -676,7 +676,7 @@
                     - 12e6 / 192e3 / 14 ~= 4.46.
 
                 Maximum externel trigger conversion start delay is:
-                    2/12 + 1/72 = 0.180 μs (from datasheet)
+                    2/12 + 1/72 = 0.180 us (from datasheet)
             **/
 
             /* CONFIGURE_PIN(GPIOA, 0, I_ANALOG); */
@@ -697,7 +697,7 @@
             ADC2->CR2  = 1 | ADC_CR2_EXTTRIG | TRG_T1CC2;
 
             /* Calibrate ADCs */
-            wait_μs(6, F_CPU_MHz);
+            wait_us(6, F_CPU_MHz);
             ADC1->CR2 |= ADC_CR2_CAL;
             ADC2->CR2 |= ADC_CR2_CAL;
             while ((ADC1->CR2 | ADC2->CR2) & ADC_CR2_CAL);
